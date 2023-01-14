@@ -1,38 +1,100 @@
-.App {
+@import url("boilerplate.css");
+
+@import url("portrait.css");
+
+@import url("landscape.css");
+
+html{
+background: #1a344d;
+}
+
+img{
+  margin: 0 auto;
+}
+
+span{ text-align: center; display:block;}
+
+.bunnhoyrebilde{cursor: pointer;}
+
+.transparent{opacity: .0; pointer-events: none;}
+
+#tegneserie{
+  position:absolute;
+  min-width: 100%;
+  min-height: 100%;
+  background-color:#1a344d;
+  z-index: 100;
+}
+
+#spinner{
+  width: 50vw;
   text-align: center;
+  position: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
+#toppvenstre, #bunnhoyre{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: grid;
+}
+
+ #toppvenstre{
   pointer-events: none;
+  z-index: 99;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#topptopp, #toppbunn{overflow: hidden;}
+
+#bunnhoyre{
+  z-index: 50;
+}
+#velgebilderdiv, #topptopp, #toppbunn{
+  display:grid;
+  place-items: center;
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#velgebilderdiv{
+  overflow-y:scroll;
+  scroll-snap-type: y mandatory;
+} 
+
+.bunnhoyrebilde{
+  scroll-snap-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.endeknapp{
+  width: 300px;
+  height: 300px;
+  font-size: 14em;
+  color:white;
+  opacity: .7;
+  text-align: center;
+  background: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.endeknapp:hover{
+  opacity: .9;
+}
+
+.fadeIn{
+  animation-name: fade;
+  animation-direction: normal;
+  animation-duration: .2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fadeUt{
+  animation-name: fade;
+  animation-direction: reverse;
+  animation-duration: .2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+  0% {opacity:0}
+  100% {opacity: 1;}
 }
