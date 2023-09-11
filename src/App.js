@@ -16,6 +16,27 @@ function App() {
   }, [shownImg]);
 
 
+  /* ...nå er vel egentlig minimumsfunksjonaliteten på plass - det som mangler er:
+
+    prioritert:
+
+    - flere bilder!
+    - fiks posisjonering og størrelse på knappene helt på slutten
+
+    polish:
+    - lage spinner og få den til å vise på første loadings, og få delayen til å funke
+    - fuzzy blå kanter på bunnhoire, så scrollingen ikke blir så skarp
+
+    features:
+    - rendring av alt-tekst når det er sjekket av
+    - fikse linking og tilbakeknapp (mulig det er en del arbeid!)
+    - betingelser (positive, negative)
+
+    annet:
+    - testing og errors?
+
+*/
+
   function velgebilderListeMekke(sisteBilde){
 
 //filtrerer
@@ -75,7 +96,11 @@ function App() {
     /* let spinner = document.getElementById("spinner"); */
     /* delayedSpinner = setTimeout(fadeInn, 2000, spinner); */
 
-    Promise.all(Array.from(bunnhoyre.getElementsByTagName("img")).filter(img => !img.complete).map(img => new Promise(resolve => { img.onload = img.onerror = resolve; }))).then(() => {
+    Promise.all(
+      Array.from(bunnhoyre.getElementsByTagName("img"))
+      .filter(img => !img.complete)
+      .map(img => new Promise(resolve => { img.onload = img.onerror = resolve; })))
+      .then(() => {
         /* clearTimeout(delayedSpinner); */
         /* fadeUt(spinner); */
         fadeInn(bunnhoyre);
@@ -94,8 +119,8 @@ function handleClick(bilde){
 
   setTimeout(setShownImg, 300, shownImg.concat([bilde]));
 
-  setTimeout(valgAnimStopp, 350, toppvenstre, nubilde);
-  setTimeout(ventPaBilder, 350, bunnhoyre);
+  setTimeout(valgAnimStopp, 305, toppvenstre, nubilde);
+  setTimeout(ventPaBilder, 320, bunnhoyre);
 
 }
 
@@ -122,26 +147,6 @@ function printImg(){
 function restart(){
   window.location.reload();
 }
-
-/* ...nå er vel egentlig minimumsfunksjonaliteten på plass - det som mangler er:
-
-    prioritert:
-
-    - flere bilder!
-
-    polish:
-    - lage spinner og få den til å vise på første loadings, og få delayen til å funke
-    - fuzzy blå kanter på bunnhoire, så scrollingen ikke blir så skarp
-
-    features:
-    - rendring av alt-tekst når det er sjekket av
-    - fikse linking og tilbakeknapp (mulig det er en del arbeid!)
-    - betingelser (positive, negative)
-
-    annet:
-    - testing og errors?
-
-*/
 
   return (
     <div className="App">

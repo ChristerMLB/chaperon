@@ -13,14 +13,16 @@
     .move{
         animation-name: move;
         animation-duration: .5s;
+        animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode:forwards;
     }
 
     @keyframes move{
-        0% {top: 0vh; }
-        40% {top: 0vh; }
-        80% {top: -50vh; }
+        0% {translate: 0 0vh; }
+        40% {translate: 0 0vh; }
+        80% {translate: 0 -50vh; }
+        100% {translate: 0 -50vh; }
     }
 
 }

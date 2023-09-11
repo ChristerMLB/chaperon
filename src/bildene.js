@@ -27,6 +27,9 @@ const bildene = [
 
     ["finnehytte", "gaskog", "Omsider finner lille Rødhette frem til bestemor sitt hus.", 
     [[]],[[]] ],
+	
+	["bankapa", "finnehytte", "Hun går bort til døren og banker på.", 
+    [[]],[[]] ],
 
 ];
 
